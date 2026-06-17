@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORWEST ASIA — Request for Quotation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --norwest-black: #1a1a1a;
+            --norwest-orange: #D44000;
+            --norwest-orange-light: #E85D04;
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --text: #2d3748;
+            --text-light: #718096;
+            --border: #e2e8f0;
+            --border-light: #edf2f7;
+            --success: #38a169;
+            --danger: #e53e3e;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            background: var(--norwest-black);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--norwest-orange);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .logo-text .nor { color: white; }
+        .logo-text .west { color: var(--norwest-orange); }
+        .logo-text .asia { color: var(--norwest-orange); font-weight: 800; }
+
+        .logo-sub {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--norwest-orange);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 8px;
+            box-shadow: 0 4px 12px rgba(212, 64, 0, 0.3);
+        }
+
+        .header-contact {
+            text-align: right;
+            font-size: 0.82rem;
+            line-height: 2;
+            color: rgba(255,255,255,0.75);
+        }
+
+        .header-contact a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.2s;
+        }
+
+        .header-contact a:hover {
+            color: white;
+            border-color: var(--norwest-orange);
+        }
+
+        /* ========== MAIN LAYOUT ========== */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 32px;
+        }
+
+        @media (max-width: 960px) {
+            .main-container { grid-template-columns: 1fr; }
+            .header-content { flex-direction: column; text-align: center; }
+            .header-contact { text-align: center; }
+            .brand { flex-direction: column; align-items: center; }
+        }
+
+        /* ========== CARDS ========== */
+        .card {
+            background: var(--card);
+            border-radius: 14px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            margin-bottom: 24px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .card-header {
+            padding: 20px 24px;
+            border-bottom: 2px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-header-icon {
+            width: 36px; height: 36px;
+            background: var(--norwest-black);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .card-header h2 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--norwest-black);
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        /* ========== FORM ELEMENTS ========== */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-row.three-col {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        @media (max-width: 640px) {
+            .form-row, .form-row.three-col { grid-template-columns: 1fr; }
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.82rem;
+            color: var(--text);
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+
+        .required label::after {
+            content: " *";
+            color: var(--norwest-orange);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.2s;
+            background: white;
+            color: var(--text);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--norwest-orange);
+            box-shadow: 0 0 0 4px rgba(212, 64, 0, 0.08);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23718096' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .input-hint {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        /* ========== LINE ITEMS TABLE ========== */
+        .line-items-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 2px solid var(--border);
+        }
+
+        .line-items-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.9rem;
+            min-width: 700px;
+        }
+
+        .line-items-table th {
+            background: var(--norwest-black);
+            color: white;
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+        }
+
+        .line-items-table th:first-child { border-radius: 10px 0 0 0; }
+        .line-items-table th:last-child { border-radius: 0 10px 0 0; }
+
+        .line-items-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-light);
+            vertical-align: top;
+        }
+
+        .line-items-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .line-items-table input,
+        .line-items-table select,
+        .line-items-table textarea {
+            padding: 8px 10px;
+            font-size: 0.88rem;
+            border-radius: 8px;
+        }
+
+        .line-items-table textarea {
+            min-height: 60px;
+            resize: vertical;
+        }
+
+        .line-num {
+            font-weight: 700;
+            color: var(--norwest-orange);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .remove-btn {
+            background: #fed7d7;
+            color: var(--danger);
+            border: none;
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .remove-btn:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        .add-line-btn {
+            width: 100%;
+            padding: 14px;
+            background: white;
+            border: 2px dashed var(--norwest-orange);
+            color: var(--norwest-orange);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .add-line-btn:hover {
+            background: #fff5f0;
+            border-style: solid;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ========== TOTAL ROW ========== */
+        .total-row {
+            background: #f8f9fa;
+            font-weight: 700;
+        }
+
+        .total-row td {
+            padding: 16px 12px;
+            border-top: 2px solid var(--border);
+        }
+
+        .total-label {
+            text-align: right;
+            color: var(--norwest-black);
+            font-size: 0.95rem;
+        }
+
+        .total-value {
+            color: var(--norwest-orange);
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        /* ========== SIDEBAR ========== */
+        .sidebar {
+            position: sticky;
+            top: 24px;
+            height: fit-content;
+        }
+
+        .submit-card {
+            background: var(--norwest-black);
+            color: white;
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .submit-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submit-card p {
+            font-size: 0.85rem;
+            opacity: 0.75;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--norwest-orange);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(212, 64, 0, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: var(--norwest-orange-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 64, 0, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .info-pill {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .info-pill.blue {
+            background: #ebf8ff;
+            color: #2a4365;
+            border: 1px solid #bee3f8;
+        }
+
+        .info-pill.green {
+            background: #f0fff4;
+            color: #22543d;
+            border: 1px solid #c6f6d5;
+        }
+
+        .info-pill.orange {
+            background: #fffaf0;
+            color: #744210;
+            border: 1px solid #fbd38d;
+        }
+
+        .info-pill .icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .terms-card {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .terms-card h4 {
+            font-size: 0.9rem;
+            color: var(--norwest-black);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terms-list {
+            list-style: none;
+            font-size: 0.82rem;
+            color: var(--text);
+            line-height: 2.2;
+        }
+
+        .terms-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .terms-list li::before {
+            content: "▸";
+            color: var(--norwest-orange);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .terms-list strong {
+            color: var(--norwest-black);
+        }
+
+        /* ========== MODAL ========== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(6px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 20px;
+            max-width: 480px;
+            width: 100%;
+            padding: 48px 40px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            animation: modalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.92) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-icon {
+            width: 80px; height: 80px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 36px;
+            color: white;
+            box-shadow: 0 8px 24px rgba(56, 161, 105, 0.3);
+        }
+
+        .modal h2 {
+            color: var(--success);
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .modal p {
+            color: var(--text-light);
+            margin-bottom: 28px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .modal-btn {
+            padding: 14px 36px;
+            background: var(--norwest-black);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-btn:hover {
+            background: var(--norwest-orange);
+        }
+
+        /* ========== ADMIN PANEL ========== */
+        .admin-toggle {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--norwest-black);
+            color: white;
+            padding: 14px 22px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.2s;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-toggle:hover {
+            background: var(--norwest-orange);
+            transform: translateY(-2px);
+        }
+
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 0; right: 0;
+            width: 100%;
+            max-width: 680px;
+            height: 100%;
+            background: white;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.15);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .admin-panel.active {
+            display: block;
+            animation: slideInRight 0.3s ease;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        .admin-header {
+            background: var(--norwest-black);
+            color: white;
+            padding: 24px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 3px solid var(--norwest-orange);
+        }
+
+        .admin-header h2 {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .close-admin {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 44px; height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            transition: background 0.2s;
+        }
+
+        .close-admin:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .admin-content {
+            padding: 28px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--norwest-black);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border-bottom: 3px solid var(--norwest-orange);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            opacity: 0.7;
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .admin-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-export {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-export:hover {
+            background: #2f855a;
+            transform: translateY(-1px);
+        }
+
+        .btn-clear {
+            background: #fed7d7;
+            color: var(--danger);
+        }
+
+        .btn-clear:hover {
+            background: var(--danger);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .submission-card {
+            background: #f8f9fa;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 18px;
+            border-left: 4px solid var(--norwest-orange);
+            transition: all 0.2s;
+        }
+
+        .submission-card:hover {
+            box-shadow: var(--shadow-sm);
+            transform: translateX(4px);
+        }
+
+        .submission-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .submission-company {
+            font-weight: 800;
+            color: var(--norwest-black);
+            font-size: 1.05rem;
+        }
+
+        .submission-meta {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .submission-details {
+            font-size: 0.88rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .submission-details strong {
+            color: var(--norwest-black);
+            font-weight: 600;
+        }
+
+        .line-preview {
+            background: white;
+            border-radius: 10px;
+            padding: 16px;
+            margin-top: 14px;
+            overflow-x: auto;
+        }
+
+        .line-preview table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+            min-width: 500px;
+        }
+
+        .line-preview th {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 2px solid var(--border);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .line-preview td {
+            padding: 8px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .submission-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .action-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-copy {
+            background: var(--norwest-black);
+            color: white;
+        }
+
+        .btn-copy:hover {
+            background: var(--norwest-orange);
+        }
+
+        .btn-del {
+            background: #fed7d7;
+            color: var(--danger);
+        }
+
+        .btn-del:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+        }
+
+        .empty-state .big-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            opacity: 0.4;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.05s; }
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.15s; }
+        .card:nth-child(4) { animation-delay: 0.2s; }
+
+        /* ========== PRINT ========== */
+        @media print {
+            .header { background: var(--norwest-black) !important; -webkit-print-color-adjust: exact; }
+            .admin-toggle, .sidebar { display: none; }
+            .main-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <div class="brand">
+                    <div class="logo-text">
+                        <span class="nor">NOR</span><span class="west">WEST</span> <span class="asia">ASIA</span>
+                    </div>
+                </div>
+                <div class="logo-sub">Marine & Industrial Solutions</div>
+                <div class="header-badge">
+                    <span>📋</span> Request for Quotation
+                </div>
+            </div>
+            <div class="header-contact">
+                <div>📍 Sri Ampang Hilir, Jalan Hilir, Ampang</div>
+                <div>&nbsp;&nbsp;&nbsp;55100 Kuala Lumpur, Malaysia</div>
+                <div>📞 +6012 879 7198</div>
+                <div>✉️ <a href="mailto:norwestasia1@gmail.com">norwestasia1@gmail.com</a></div>
+                <div>🌐 <a href="https://www.norwestmarine.no" target="_blank">www.norwestmarine.no</a></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <div class="main-container">
+        <div class="form-area">
+            <form id="rfqForm">
+
+                <!-- Client Information -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header-icon">🏢</div>
+                        <h2>Client Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group required">
+                                <label for="clientCompany">Client Company Name</label>
+                                <input type="text" id="clientCompany" name="clientCompany" required placeholder="e.g. ABC Marine Sdn Bhd">
+                            </div>
+                            <div class="form-group required">
+                                <label for="attentionName">Attention (Requestor's Name)</label>
+                                <input type="text" id="attentionName" name="attentionName" required placeholder="e.g. Mr. Ahmad Bin Ismail">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group required">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="ahmad@abcmarine.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+60 12-345 6789">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Details -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header-icon">📋</div>
+                        <h2>Project Details</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group required">
+                                <label for="projectName">Project Name</label>
+                                <input type="text" id="projectName" name="projectName" required placeholder="e.g. Engine Overhaul Q3 2026">
+                            </div>
+                            <div class="form-group">
+                                <label for="inquiryRef">Inquiry / RFQ Reference #</label>
+                                <input type="text" id="inquiryRef" name="inquiryRef" placeholder="e.g. RFQ-2026-0617-001">
+                            </div>
+                        </div>
+                        <div class="form-row three-col">
+                            <div class="form-group">
+                                <label for="modelSerial1">Model # / Serial # (1)</label>
+                                <input type="text" id="modelSerial1" name="modelSerial1" placeholder="e.g. Wärtsilä 32 / SN-884521">
+                            </div>
+                            <div class="form-group">
+                                <label for="modelSerial2">Model # / Serial # (2)</label>
+                                <input type="text" id="modelSerial2" name="modelSerial2" placeholder="Optional second unit">
+                            </div>
+                            <div class="form-group">
+                                <label for="targetDate">Target Delivery Date</label>
+                                <input type="date" id="targetDate" name="targetDate">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Line Items -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header-icon">📦</div>
+                        <h2>Requested Items / Services</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="line-items-wrapper">
+                            <table class="line-items-table" id="lineItemsTable">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 50px;">Lines</th>
+                                        <th>Part Number</th>
+                                        <th style="width: 90px;">Quantity</th>
+                                        <th>Description</th>
+                                        <th style="width: 130px;">Availability of Stock</th>
+                                        <th style="width: 40px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="lineItemsBody">
+                                    <!-- Line items added dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <button type="button" class="add-line-btn" onclick="addLineItem()">
+                            <span>+</span> Add Line Item
+                        </button>
+                        <p class="input-hint" style="margin-top: 12px; text-align: center;">
+                            Add all parts, components, or services you need quoted. You can add as many line items as needed.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-header-icon">📝</div>
+                        <h2>Additional Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="specialRequirements">Special Requirements or Remarks</label>
+                            <textarea id="specialRequirements" name="specialRequirements" placeholder="Any specific delivery terms, packaging requirements, certifications needed, or other important details..."></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="deliveryTerms">Preferred Delivery Terms</label>
+                                <select id="deliveryTerms" name="deliveryTerms">
+                                    <option value="exw_dordrecht">EX WORKS DORDRECHT (Default)</option>
+                                    <option value="cif">CIF (Cost, Insurance & Freight)</option>
+                                    <option value="fob">FOB (Free On Board)</option>
+                                    <option value="dap">DAP (Delivered at Place)</option>
+                                    <option value="other">Other (specify in remarks)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="paymentTerms">Preferred Payment Terms</label>
+                                <select id="paymentTerms" name="paymentTerms">
+                                    <option value="prepayment">Pre-payment (Default)</option>
+                                    <option value="net30">Net 30 Days</option>
+                                    <option value="net60">Net 60 Days</option>
+                                    <option value="lc">Letter of Credit</option>
+                                    <option value="other">Other (specify in remarks)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- ========== SIDEBAR ========== -->
+        <aside class="sidebar">
+            <div class="submit-card">
+                <h3><span>📨</span> Submit RFQ</h3>
+                <p>Complete the form and submit your quotation request. Our team will respond within 24-48 business hours.</p>
+                <button type="submit" form="rfqForm" class="submit-btn">
+                    <span>🚀</span> Submit Quotation Request
+                </button>
+            </div>
+
+            <div class="info-pill blue">
+                <span class="icon">⏱️</span>
+                <div><strong>Response Time</strong><br>We aim to respond to all quotation requests within 24-48 business hours.</div>
+            </div>
+
+            <div class="info-pill green">
+                <span class="icon">💶</span>
+                <div><strong>Currency</strong><br>All quotations are issued in <strong>Euros (€)</strong> unless otherwise requested.</div>
+            </div>
+
+            <div class="info-pill orange">
+                <span class="icon">📞</span>
+                <div><strong>Need Help?</strong><br>Contact us at +6012 879 7198 or norwestasia1@gmail.com</div>
+            </div>
+
+            <div class="terms-card">
+                <h4><span>📋</span> Standard Terms & Conditions</h4>
+                <ul class="terms-list">
+                    <li><strong>Availability of Stock:</strong> Stated next to each item</li>
+                    <li><strong>Terms of Delivery:</strong> EX WORKS DORDRECHT</li>
+                    <li><strong>Terms of Payment:</strong> PRE-PAYMENT</li>
+                    <li><strong>Validity:</strong> 30 DAYS NETT</li>
+                    <li><strong>Min Order Value:</strong> €100 NET</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ========== SUCCESS MODAL ========== -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <div class="modal-icon">✓</div>
+            <h2>RFQ Submitted Successfully</h2>
+            <p>Thank you for your quotation request. Our team at NORWEST ASIA will review your requirements and respond within 24-48 business hours with a formal quotation.</p>
+            <button class="modal-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- ========== ADMIN PANEL ========== -->
+    <button class="admin-toggle" onclick="toggleAdmin()">
+        <span>📋</span> View Submissions
+    </button>
+
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h2><span>📋</span> RFQ Submissions</h2>
+            <button class="close-admin" onclick="toggleAdmin()">×</button>
+        </div>
+        <div class="admin-content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="statTotal">0</div>
+                    <div class="stat-label">Total RFQs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="statToday">0</div>
+                    <div class="stat-label">Today</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="statItems">0</div>
+                    <div class="stat-label">Total Items</div>
+                </div>
+            </div>
+            <div class="admin-actions">
+                <button class="admin-btn btn-export" onclick="exportAllSubmissions()">📥 Export All</button>
+                <button class="admin-btn btn-clear" onclick="clearAllSubmissions()">🗑️ Clear All</button>
+            </div>
+            <div id="submissionsList"></div>
+        </div>
+    </div>
+
+    <script>
+        // ========== LINE ITEM MANAGEMENT ==========
+        let lineItemCount = 0;
+
+        function addLineItem(data = null) {
+            lineItemCount++;
+            const tbody = document.getElementById('lineItemsBody');
+
+            const row = document.createElement('tr');
+            row.dataset.index = lineItemCount;
+            row.innerHTML = `
+                <td class="line-num">${lineItemCount}</td>
+                <td><input type="text" name="line_part_${lineItemCount}" placeholder="e.g. 123456-AB" required></td>
+                <td><input type="number" name="line_qty_${lineItemCount}" min="1" value="1" required style="text-align: center;"></td>
+                <td><textarea name="line_desc_${lineItemCount}" rows="2" placeholder="Detailed description, specs, manufacturer..." required></textarea></td>
+                <td>
+                    <select name="line_stock_${lineItemCount}">
+                        <option value="in_stock">In Stock</option>
+                        <option value="limited">Limited Stock</option>
+                        <option value="out_of_stock">Out of Stock</option>
+                        <option value="indent">Indent / Order</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </td>
+                <td><button type="button" class="remove-btn" onclick="removeLineItem(this)" title="Remove">×</button></td>
+            `;
+
+            tbody.appendChild(row);
+            row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function removeLineItem(btn) {
+            const row = btn.closest('tr');
+            row.style.opacity = '0';
+            row.style.transform = 'translateX(-20px)';
+            setTimeout(() => {
+                row.remove();
+                renumberLines();
+            }, 200);
+        }
+
+        function renumberLines() {
+            const rows = document.querySelectorAll('#lineItemsBody tr');
+            rows.forEach((row, idx) => {
+                row.querySelector('.line-num').textContent = idx + 1;
+            });
+            lineItemCount = rows.length;
+        }
+
+        // Initialize with one line item
+        addLineItem();
+
+        // ========== FORM SUBMISSION ==========
+        document.getElementById('rfqForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const lineItems = [];
+
+            document.querySelectorAll('#lineItemsBody tr').forEach(row => {
+                const idx = row.dataset.index;
+                lineItems.push({
+                    lineNumber: row.querySelector('.line-num').textContent,
+                    partNumber: formData.get(`line_part_${idx}`),
+                    quantity: formData.get(`line_qty_${idx}`),
+                    description: formData.get(`line_desc_${idx}`),
+                    stockAvailability: formData.get(`line_stock_${idx}`)
+                });
+            });
+
+            const submission = {
+                id: 'RFQ-' + Date.now(),
+                timestamp: new Date().toISOString(),
+                clientCompany: formData.get('clientCompany'),
+                attentionName: formData.get('attentionName'),
+                email: formData.get('email'),
+                phone: formData.get('phone') || 'Not provided',
+                projectName: formData.get('projectName'),
+                inquiryRef: formData.get('inquiryRef') || 'Not provided',
+                modelSerial1: formData.get('modelSerial1') || 'Not provided',
+                modelSerial2: formData.get('modelSerial2') || 'Not provided',
+                targetDate: formData.get('targetDate') || 'Not specified',
+                deliveryTerms: formData.get('deliveryTerms'),
+                paymentTerms: formData.get('paymentTerms'),
+                specialRequirements: formData.get('specialRequirements') || 'None',
+                lineItems: lineItems,
+                status: 'New'
+            };
+
+            // Save to localStorage
+            let submissions = JSON.parse(localStorage.getItem('norwestRFQs') || '[]');
+            submissions.unshift(submission);
+            localStorage.setItem('norwestRFQs', JSON.stringify(submissions));
+
+            // Show success
+            document.getElementById('successModal').classList.add('active');
+            this.reset();
+            document.getElementById('lineItemsBody').innerHTML = '';
+            lineItemCount = 0;
+            addLineItem();
+        });
+
+        function closeModal() {
+            document.getElementById('successModal').classList.remove('active');
+        }
+
+        // ========== ADMIN PANEL ==========
+        function toggleAdmin() {
+            const panel = document.getElementById('adminPanel');
+            panel.classList.toggle('active');
+            if (panel.classList.contains('active')) {
+                renderSubmissions();
+            }
+        }
+
+        function renderSubmissions() {
+            const submissions = JSON.parse(localStorage.getItem('norwestRFQs') || '[]');
+            const list = document.getElementById('submissionsList');
+
+            // Stats
+            document.getElementById('statTotal').textContent = submissions.length;
+            const today = new Date().toDateString();
+            document.getElementById('statToday').textContent = 
+                submissions.filter(s => new Date(s.timestamp).toDateString() === today).length;
+            document.getElementById('statItems').textContent = 
+                submissions.reduce((sum, s) => sum + (s.lineItems?.length || 0), 0);
+
+            if (submissions.length === 0) {
+                list.innerHTML = `
+                    <div class="empty-state">
+                        <div class="big-icon">📭</div>
+                        <h3>No submissions yet</h3>
+                        <p>RFQ submissions will appear here once clients start using the form.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            list.innerHTML = submissions.map(sub => `
+                <div class="submission-card">
+                    <div class="submission-header">
+                        <div>
+                            <div class="submission-company">${sub.clientCompany}</div>
+                            <div class="submission-meta">
+                                ${new Date(sub.timestamp).toLocaleString()} • ID: ${sub.id}
+                            </div>
+                        </div>
+                        <div class="submission-meta" style="text-align: right;">
+                            <div style="font-weight: 700; color: var(--norwest-orange);">${sub.lineItems?.length || 0} item(s)</div>
+                            <div>${sub.projectName}</div>
+                        </div>
+                    </div>
+                    <div class="submission-details">
+                        <strong>Attention:</strong> ${sub.attentionName}<br>
+                        <strong>Email:</strong> ${sub.email}<br>
+                        <strong>Phone:</strong> ${sub.phone}<br>
+                        <strong>Inquiry Ref:</strong> ${sub.inquiryRef}<br>
+                        <strong>Model/Serial (1):</strong> ${sub.modelSerial1}<br>
+                        <strong>Model/Serial (2):</strong> ${sub.modelSerial2}<br>
+                        <strong>Target Date:</strong> ${sub.targetDate}<br>
+                        <strong>Delivery:</strong> ${sub.deliveryTerms.replace(/_/g, ' ').toUpperCase()}<br>
+                        <strong>Payment:</strong> ${sub.paymentTerms.replace(/_/g, ' ').toUpperCase()}<br>
+                        <strong>Special Requirements:</strong> ${sub.specialRequirements}
+                    </div>
+                    ${sub.lineItems && sub.lineItems.length > 0 ? `
+                    <div class="line-preview">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Line</th>
+                                    <th>Part #</th>
+                                    <th>Qty</th>
+                                    <th>Stock</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${sub.lineItems.map(item => `
+                                    <tr>
+                                        <td style="font-weight: 700; color: var(--norwest-orange);">${item.lineNumber}</td>
+                                        <td>${item.partNumber}</td>
+                                        <td>${item.quantity}</td>
+                                        <td><span style="text-transform: capitalize;">${item.stockAvailability.replace(/_/g, ' ')}</span></td>
+                                        <td>${item.description}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                    ` : ''}
+                    <div class="submission-actions">
+                        <button class="action-btn btn-copy" onclick="copySubmission('${sub.id}')">📋 Copy Details</button>
+                        <button class="action-btn btn-del" onclick="deleteSubmission('${sub.id}')">🗑️ Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function copySubmission(id) {
+            const submissions = JSON.parse(localStorage.getItem('norwestRFQs') || '[]');
+            const sub = submissions.find(s => s.id === id);
+            if (!sub) return;
+
+            const text = `
+═══════════════════════════════════════════════════════════════════
+                    NORWEST ASIA — REQUEST FOR QUOTATION
+═══════════════════════════════════════════════════════════════════
+
+SUBMISSION ID : ${sub.id}
+DATE          : ${new Date(sub.timestamp).toLocaleString()}
+STATUS        : ${sub.status}
+
+┌─ CLIENT INFORMATION ─────────────────────────────────────────────┐
+  Company   : ${sub.clientCompany}
+  Attention : ${sub.attentionName}
+  Email     : ${sub.email}
+  Phone     : ${sub.phone}
+└──────────────────────────────────────────────────────────────────┘
+
+┌─ PROJECT DETAILS ────────────────────────────────────────────────┐
+  Project        : ${sub.projectName}
+  Inquiry Ref    : ${sub.inquiryRef}
+  Model/Serial 1 : ${sub.modelSerial1}
+  Model/Serial 2 : ${sub.modelSerial2}
+  Target Date    : ${sub.targetDate}
+  Delivery Terms : ${sub.deliveryTerms.replace(/_/g, ' ').toUpperCase()}
+  Payment Terms  : ${sub.paymentTerms.replace(/_/g, ' ').toUpperCase()}
+└──────────────────────────────────────────────────────────────────┘
+
+┌─ LINE ITEMS ─────────────────────────────────────────────────────┐
+${sub.lineItems?.map(item => `
+  [Line ${item.lineNumber}]
+    Part Number : ${item.partNumber}
+    Quantity    : ${item.quantity}
+    Stock       : ${item.stockAvailability.replace(/_/g, ' ').toUpperCase()}
+    Description : ${item.description}
+`).join('') || '  No items'}
+└──────────────────────────────────────────────────────────────────┘
+
+┌─ SPECIAL REQUIREMENTS ─────────────────────────────────────────┐
+  ${sub.specialRequirements}
+└──────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+            `.trim();
+
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Submission details copied to clipboard!');
+            });
+        }
+
+        function deleteSubmission(id) {
+            if (!confirm('Are you sure you want to delete this submission?')) return;
+            let submissions = JSON.parse(localStorage.getItem('norwestRFQs') || '[]');
+            submissions = submissions.filter(s => s.id !== id);
+            localStorage.setItem('norwestRFQs', JSON.stringify(submissions));
+            renderSubmissions();
+        }
+
+        function exportAllSubmissions() {
+            const submissions = JSON.parse(localStorage.getItem('norwestRFQs') || '[]');
+            if (submissions.length === 0) {
+                alert('No submissions to export');
+                return;
+            }
+
+            const text = submissions.map((sub, i) => `
+═══════════════════════════════════════════════════════════════════
+  RFQ SUBMISSION #${i + 1}  |  ID: ${sub.id}
+═══════════════════════════════════════════════════════════════════
+
+Date     : ${new Date(sub.timestamp).toLocaleString()}
+Status   : ${sub.status}
+
+CLIENT INFORMATION
+──────────────────
+Company   : ${sub.clientCompany}
+Attention : ${sub.attentionName}
+Email     : ${sub.email}
+Phone     : ${sub.phone}
+
+PROJECT DETAILS
+───────────────
+Project        : ${sub.projectName}
+Inquiry Ref    : ${sub.inquiryRef}
+Model/Serial 1 : ${sub.modelSerial1}
+Model/Serial 2 : ${sub.modelSerial2}
+Target Date    : ${sub.targetDate}
+Delivery Terms : ${sub.deliveryTerms.replace(/_/g, ' ').toUpperCase()}
+Payment Terms  : ${sub.paymentTerms.replace(/_/g, ' ').toUpperCase()}
+
+LINE ITEMS
+──────────
+${sub.lineItems?.map(item => `
+[${item.lineNumber}] ${item.partNumber} | Qty: ${item.quantity} | Stock: ${item.stockAvailability.replace(/_/g, ' ').toUpperCase()}
+    ${item.description}
+`).join('') || 'No items'}
+
+SPECIAL REQUIREMENTS
+────────────────────
+${sub.specialRequirements}
+
+───────────────────────────────────────────────────────────────────
+            `.trim()).join('
+
+
+');
+
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `NORWEST_RFQ_Export_${new Date().toISOString().split('T')[0]}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function clearAllSubmissions() {
+            if (!confirm('WARNING: This will permanently delete ALL submissions.\n\nAre you absolutely sure?')) return;
+            localStorage.removeItem('norwestRFQs');
+            renderSubmissions();
+        }
+
+        // Close modal on overlay click
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+    </script>
+</body>
+</html>

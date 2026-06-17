@@ -88,6 +88,13 @@
             margin-top: 2px;
         }
 
+        .header-industries {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.55);
+            margin-top: 4px;
+            line-height: 1.8;
+        }
+
         .header-badge {
             display: inline-flex;
             align-items: center;
@@ -100,7 +107,7 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-top: 8px;
+            margin-top: 12px;
             box-shadow: 0 4px 12px rgba(212, 64, 0, 0.3);
         }
 
@@ -268,6 +275,7 @@
             overflow-x: auto;
             border-radius: 12px;
             border: 2px solid var(--border);
+            background: white;
         }
 
         .line-items-table {
@@ -275,7 +283,7 @@
             border-collapse: separate;
             border-spacing: 0;
             font-size: 0.9rem;
-            min-width: 700px;
+            min-width: 600px;
         }
 
         .line-items-table th {
@@ -321,6 +329,7 @@
             color: var(--norwest-orange);
             font-size: 0.9rem;
             text-align: center;
+            padding-top: 14px;
         }
 
         .remove-btn {
@@ -330,11 +339,12 @@
             width: 32px; height: 32px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.2s;
+            margin-top: 4px;
         }
 
         .remove-btn:hover {
@@ -365,29 +375,6 @@
             border-style: solid;
             transform: translateY(-1px);
             box-shadow: var(--shadow-sm);
-        }
-
-        /* ========== TOTAL ROW ========== */
-        .total-row {
-            background: #f8f9fa;
-            font-weight: 700;
-        }
-
-        .total-row td {
-            padding: 16px 12px;
-            border-top: 2px solid var(--border);
-        }
-
-        .total-label {
-            text-align: right;
-            color: var(--norwest-black);
-            font-size: 0.95rem;
-        }
-
-        .total-value {
-            color: var(--norwest-orange);
-            font-size: 1.1rem;
-            font-weight: 800;
         }
 
         /* ========== SIDEBAR ========== */
@@ -925,7 +912,11 @@
                         <span class="nor">NOR</span><span class="west">WEST</span> <span class="asia">ASIA</span>
                     </div>
                 </div>
-                <div class="logo-sub">Marine & Industrial Solutions</div>
+                <div class="logo-sub">Marine Solutions | Power Generators | Rail Solutions</div>
+                <div class="header-industries">
+                    Mining Industry | Construction | Logging Industry<br>
+                    Global Spare Parts Supply & Technical Support
+                </div>
                 <div class="header-badge">
                     <span>📋</span> Request for Quotation
                 </div>
@@ -954,18 +945,18 @@
                     <div class="card-body">
                         <div class="form-row">
                             <div class="form-group required">
-                                <label for="clientCompany">Client Company Name</label>
+                                <label for="clientCompany">Company Name</label>
                                 <input type="text" id="clientCompany" name="clientCompany" required placeholder="e.g. ABC Marine Sdn Bhd">
                             </div>
                             <div class="form-group required">
-                                <label for="attentionName">Attention (Requestor's Name)</label>
-                                <input type="text" id="attentionName" name="attentionName" required placeholder="e.g. Mr. Ahmad Bin Ismail">
+                                <label for="attentionName">Requestor's Name</label>
+                                <input type="text" id="attentionName" name="attentionName" required placeholder="e.g. Mr. Roy Rothchild">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group required">
                                 <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required placeholder="ahmad@abcmarine.com">
+                                <input type="email" id="email" name="email" required placeholder="roy@abcmarine.com">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
@@ -1024,12 +1015,18 @@
                                         <th>Part Number</th>
                                         <th style="width: 90px;">Quantity</th>
                                         <th>Description</th>
-                                        <th style="width: 130px;">Availability of Stock</th>
                                         <th style="width: 40px;"></th>
                                     </tr>
                                 </thead>
                                 <tbody id="lineItemsBody">
-                                    <!-- Line items added dynamically -->
+                                    <!-- PRE-LOADED LINE 1 -->
+                                    <tr data-index="1">
+                                        <td class="line-num">1</td>
+                                        <td><input type="text" name="line_part_1" placeholder="e.g. 123456-AB" required></td>
+                                        <td><input type="number" name="line_qty_1" min="1" value="1" required style="text-align: center;"></td>
+                                        <td><textarea name="line_desc_1" rows="2" placeholder="Detailed description, specs, manufacturer..." required></textarea></td>
+                                        <td><button type="button" class="remove-btn" onclick="removeLineItem(this)" title="Remove">×</button></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -1057,7 +1054,7 @@
                             <div class="form-group">
                                 <label for="deliveryTerms">Preferred Delivery Terms</label>
                                 <select id="deliveryTerms" name="deliveryTerms">
-                                    <option value="exw_dordrecht">EX WORKS DORDRECHT (Default)</option>
+                                    <option value="ex_works">Ex Works (Default)</option>
                                     <option value="cif">CIF (Cost, Insurance & Freight)</option>
                                     <option value="fob">FOB (Free On Board)</option>
                                     <option value="dap">DAP (Delivered at Place)</option>
@@ -1068,9 +1065,6 @@
                                 <label for="paymentTerms">Preferred Payment Terms</label>
                                 <select id="paymentTerms" name="paymentTerms">
                                     <option value="prepayment">Pre-payment (Default)</option>
-                                    <option value="net30">Net 30 Days</option>
-                                    <option value="net60">Net 60 Days</option>
-                                    <option value="lc">Letter of Credit</option>
                                     <option value="other">Other (specify in remarks)</option>
                                 </select>
                             </div>
@@ -1103,17 +1097,18 @@
 
             <div class="info-pill orange">
                 <span class="icon">📞</span>
-                <div><strong>Need Help?</strong><br>Contact us at +6012 879 7198 or norwestasia1@gmail.com</div>
+                <div><strong>Need Help?</strong><br>Contact us at <strong>+6012 879 7198</strong> or <strong>norwestasia1@gmail.com</strong></div>
             </div>
 
             <div class="terms-card">
                 <h4><span>📋</span> Standard Terms & Conditions</h4>
                 <ul class="terms-list">
                     <li><strong>Availability of Stock:</strong> Stated next to each item</li>
-                    <li><strong>Terms of Delivery:</strong> EX WORKS DORDRECHT</li>
+                    <li><strong>Terms of Delivery:</strong> EX WORKS</li>
                     <li><strong>Terms of Payment:</strong> PRE-PAYMENT</li>
                     <li><strong>Validity:</strong> 30 DAYS NETT</li>
                     <li><strong>Min Order Value:</strong> €100 NET</li>
+                    <li><strong>Delay Clause:</strong> Buyer-attributed delays over 30 days — including postponed delivery requests, failure to provide delivery details, site unavailability, delayed approvals, or refusal to accept delivery — may result in storage charges.</li>
                 </ul>
             </div>
         </aside>
@@ -1164,9 +1159,9 @@
 
     <script>
         // ========== LINE ITEM MANAGEMENT ==========
-        let lineItemCount = 0;
+        let lineItemCount = 1;
 
-        function addLineItem(data = null) {
+        function addLineItem() {
             lineItemCount++;
             const tbody = document.getElementById('lineItemsBody');
 
@@ -1177,24 +1172,24 @@
                 <td><input type="text" name="line_part_${lineItemCount}" placeholder="e.g. 123456-AB" required></td>
                 <td><input type="number" name="line_qty_${lineItemCount}" min="1" value="1" required style="text-align: center;"></td>
                 <td><textarea name="line_desc_${lineItemCount}" rows="2" placeholder="Detailed description, specs, manufacturer..." required></textarea></td>
-                <td>
-                    <select name="line_stock_${lineItemCount}">
-                        <option value="in_stock">In Stock</option>
-                        <option value="limited">Limited Stock</option>
-                        <option value="out_of_stock">Out of Stock</option>
-                        <option value="indent">Indent / Order</option>
-                        <option value="unknown">Unknown</option>
-                    </select>
-                </td>
                 <td><button type="button" class="remove-btn" onclick="removeLineItem(this)" title="Remove">×</button></td>
             `;
 
             tbody.appendChild(row);
-            row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            row.querySelector('input[name^="line_part_"]').focus();
         }
 
         function removeLineItem(btn) {
             const row = btn.closest('tr');
+            const tbody = document.getElementById('lineItemsBody');
+            const allRows = tbody.querySelectorAll('tr');
+
+            if (allRows.length <= 1) {
+                alert('You must have at least one line item.');
+                return;
+            }
+
             row.style.opacity = '0';
             row.style.transform = 'translateX(-20px)';
             setTimeout(() => {
@@ -1206,13 +1201,13 @@
         function renumberLines() {
             const rows = document.querySelectorAll('#lineItemsBody tr');
             rows.forEach((row, idx) => {
-                row.querySelector('.line-num').textContent = idx + 1;
+                const numCell = row.querySelector('.line-num');
+                if (numCell) {
+                    numCell.textContent = idx + 1;
+                }
             });
             lineItemCount = rows.length;
         }
-
-        // Initialize with one line item
-        addLineItem();
 
         // ========== FORM SUBMISSION ==========
         document.getElementById('rfqForm').addEventListener('submit', function(e) {
@@ -1223,13 +1218,15 @@
 
             document.querySelectorAll('#lineItemsBody tr').forEach(row => {
                 const idx = row.dataset.index;
-                lineItems.push({
-                    lineNumber: row.querySelector('.line-num').textContent,
-                    partNumber: formData.get(`line_part_${idx}`),
-                    quantity: formData.get(`line_qty_${idx}`),
-                    description: formData.get(`line_desc_${idx}`),
-                    stockAvailability: formData.get(`line_stock_${idx}`)
-                });
+                const partNum = formData.get(`line_part_${idx}`);
+                if (partNum) {
+                    lineItems.push({
+                        lineNumber: row.querySelector('.line-num').textContent,
+                        partNumber: partNum,
+                        quantity: formData.get(`line_qty_${idx}`),
+                        description: formData.get(`line_desc_${idx}`)
+                    });
+                }
             });
 
             const submission = {
@@ -1251,17 +1248,23 @@
                 status: 'New'
             };
 
-            // Save to localStorage
             let submissions = JSON.parse(localStorage.getItem('norwestRFQs') || '[]');
             submissions.unshift(submission);
             localStorage.setItem('norwestRFQs', JSON.stringify(submissions));
 
-            // Show success
             document.getElementById('successModal').classList.add('active');
             this.reset();
-            document.getElementById('lineItemsBody').innerHTML = '';
-            lineItemCount = 0;
-            addLineItem();
+
+            document.getElementById('lineItemsBody').innerHTML = `
+                <tr data-index="1">
+                    <td class="line-num">1</td>
+                    <td><input type="text" name="line_part_1" placeholder="e.g. 123456-AB" required></td>
+                    <td><input type="number" name="line_qty_1" min="1" value="1" required style="text-align: center;"></td>
+                    <td><textarea name="line_desc_1" rows="2" placeholder="Detailed description, specs, manufacturer..." required></textarea></td>
+                    <td><button type="button" class="remove-btn" onclick="removeLineItem(this)" title="Remove">×</button></td>
+                </tr>
+            `;
+            lineItemCount = 1;
         });
 
         function closeModal() {
@@ -1281,12 +1284,11 @@
             const submissions = JSON.parse(localStorage.getItem('norwestRFQs') || '[]');
             const list = document.getElementById('submissionsList');
 
-            // Stats
             document.getElementById('statTotal').textContent = submissions.length;
             const today = new Date().toDateString();
-            document.getElementById('statToday').textContent = 
+            document.getElementById('statToday').textContent =
                 submissions.filter(s => new Date(s.timestamp).toDateString() === today).length;
-            document.getElementById('statItems').textContent = 
+            document.getElementById('statItems').textContent =
                 submissions.reduce((sum, s) => sum + (s.lineItems?.length || 0), 0);
 
             if (submissions.length === 0) {
@@ -1334,7 +1336,6 @@
                                     <th>Line</th>
                                     <th>Part #</th>
                                     <th>Qty</th>
-                                    <th>Stock</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
@@ -1344,7 +1345,6 @@
                                         <td style="font-weight: 700; color: var(--norwest-orange);">${item.lineNumber}</td>
                                         <td>${item.partNumber}</td>
                                         <td>${item.quantity}</td>
-                                        <td><span style="text-transform: capitalize;">${item.stockAvailability.replace(/_/g, ' ')}</span></td>
                                         <td>${item.description}</td>
                                     </tr>
                                 `).join('')}
@@ -1374,14 +1374,14 @@ SUBMISSION ID : ${sub.id}
 DATE          : ${new Date(sub.timestamp).toLocaleString()}
 STATUS        : ${sub.status}
 
-┌─ CLIENT INFORMATION ─────────────────────────────────────────────┐
+┌─ CLIENT INFORMATION ────────────────────────────────────────────────────────────┐
   Company   : ${sub.clientCompany}
   Attention : ${sub.attentionName}
   Email     : ${sub.email}
   Phone     : ${sub.phone}
-└──────────────────────────────────────────────────────────────────┘
+└───────────────────────────────────────────────────────────────────────────────┘
 
-┌─ PROJECT DETAILS ────────────────────────────────────────────────┐
+┌─ PROJECT DETAILS ────────────────────────────────────────────────────────────┐
   Project        : ${sub.projectName}
   Inquiry Ref    : ${sub.inquiryRef}
   Model/Serial 1 : ${sub.modelSerial1}
@@ -1389,21 +1389,20 @@ STATUS        : ${sub.status}
   Target Date    : ${sub.targetDate}
   Delivery Terms : ${sub.deliveryTerms.replace(/_/g, ' ').toUpperCase()}
   Payment Terms  : ${sub.paymentTerms.replace(/_/g, ' ').toUpperCase()}
-└──────────────────────────────────────────────────────────────────┘
+└───────────────────────────────────────────────────────────────────────────────┘
 
-┌─ LINE ITEMS ─────────────────────────────────────────────────────┐
+┌─ LINE ITEMS ────────────────────────────────────────────────────────────┐
 ${sub.lineItems?.map(item => `
   [Line ${item.lineNumber}]
     Part Number : ${item.partNumber}
     Quantity    : ${item.quantity}
-    Stock       : ${item.stockAvailability.replace(/_/g, ' ').toUpperCase()}
     Description : ${item.description}
 `).join('') || '  No items'}
-└──────────────────────────────────────────────────────────────────┘
+└───────────────────────────────────────────────────────────────────────────────┘
 
-┌─ SPECIAL REQUIREMENTS ─────────────────────────────────────────┐
+┌─ SPECIAL REQUIREMENTS ───────────────────────────────────────────────┐
   ${sub.specialRequirements}
-└──────────────────────────────────────────────────────────────────┘
+└──────────────────────────────────────────────────────────────────────────────┘
 
 ═══════════════════════════════════════════════════════════════════
             `.trim();
@@ -1456,7 +1455,7 @@ Payment Terms  : ${sub.paymentTerms.replace(/_/g, ' ').toUpperCase()}
 LINE ITEMS
 ──────────
 ${sub.lineItems?.map(item => `
-[${item.lineNumber}] ${item.partNumber} | Qty: ${item.quantity} | Stock: ${item.stockAvailability.replace(/_/g, ' ').toUpperCase()}
+[${item.lineNumber}] ${item.partNumber} | Qty: ${item.quantity}
     ${item.description}
 `).join('') || 'No items'}
 
@@ -1480,7 +1479,9 @@ ${sub.specialRequirements}
         }
 
         function clearAllSubmissions() {
-            if (!confirm('WARNING: This will permanently delete ALL submissions.\n\nAre you absolutely sure?')) return;
+            if (!confirm('WARNING: This will permanently delete ALL submissions.
+
+Are you absolutely sure?')) return;
             localStorage.removeItem('norwestRFQs');
             renderSubmissions();
         }
